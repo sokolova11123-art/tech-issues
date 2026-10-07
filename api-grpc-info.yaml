@@ -19,4 +19,4 @@ spec:
   owner: nornir
   system: exolve/spine-services
  definition:
-    $text: https://github.com/sokolova11123-art/tech-issues/blob/main/hello.proto
+    $text: https://raw.githubusercontent.com/sokolova11123-art/tech-issues/main/hello.proto
