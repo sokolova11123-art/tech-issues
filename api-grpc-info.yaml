@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-service-grpc-api
+  namespace: exolve
+  description: gRPC API for test-service (Hello and Echo)
+  annotations:
+    grpc-docs.io/target: localhost:50051
+  tags:
+    - grpc
+    - test-service
+    - spine
+spec:
+  type: grpc-samuel
+  lifecycle: experimental
+  owner: nornir
+  system: exolve/spine-services
+  environments:
+    - name: local
+      target: localhost:50051
+      insecure: true
+  definition: |
+    syntax = "proto3";
+
+    package hello;
+
+    option go_package = "git.rnd.mtt/oliwio/spine/test-service/pkg/api/hello";
+
+    // HelloService is a simple service that says hello
+    service HelloService {
+      // SayHello says hello to the given name
+      rpc SayHello(HelloRequest) returns (HelloResponse);
+    }
+
+    // HelloRequest is the request for the SayHello method
+    message HelloRequest {
+      // Name is the name to say hello to
+      string name = 1;
+    }
+
+    // HelloResponse is the response from the SayHello method
+    message HelloResponse {
+      // Message is the hello message
+      string message = 1;
+    }
