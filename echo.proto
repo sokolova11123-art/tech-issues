@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package echo;
+
+option go_package = "git.rnd.mtt/oliwio/spine/test-service/pkg/api/echo";
+
+import "google/api/annotations.proto";
+
+// EchoService is a simple service that echoes back the received message
+service EchoService {
+  // Echo returns the same message that was sent
+  rpc Echo(EchoRequest) returns (EchoResponse) {
+    option (google.api.http) = {
+      post: "/v1/echo"
+      body: "*"
+    };
+  }
+}
+
+// EchoRequest is the request for the Echo method
+message EchoRequest {
+  // Message is the text to echo back
+  string message = 1;
+}
+
+// EchoResponse is the response from the Echo method
+message EchoResponse {
+  // Message is the echoed text
+  string message = 1;
+}
