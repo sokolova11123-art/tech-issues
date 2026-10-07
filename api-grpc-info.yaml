@@ -5,9 +5,9 @@ metadata:
   namespace: exolve
   description: gRPC API for test-service (Hello and Echo)
   annotations:
-    grpc-docs.io/environments: |
+   grpc-docs.io/environments: |
       - name: local
-        target: localhost:50051
+        target: 127.0.0.1:50051
         security: insecure
   tags:
     - grpc
