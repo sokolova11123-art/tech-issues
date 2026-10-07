@@ -5,7 +5,10 @@ metadata:
   namespace: exolve
   description: gRPC API for test-service (Hello and Echo)
   annotations:
-    grpc-docs.io/target: localhost:50051
+    grpc-docs.io/environments: |
+      - name: local
+        target: localhost:50051
+        security: insecure
   tags:
     - grpc
     - test-service
@@ -15,10 +18,6 @@ spec:
   lifecycle: experimental
   owner: nornir
   system: exolve/spine-services
-  environments:
-    - name: local
-      target: localhost:50051
-      insecure: true
   definition: |
     syntax = "proto3";
 
