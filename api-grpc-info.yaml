@@ -14,7 +14,7 @@ metadata:
     - test-service
     - spine
 spec:
-  type: grpc-samuel
+  type: grpc-docs
   lifecycle: experimental
   owner: nornir
   system: exolve/spine-services
